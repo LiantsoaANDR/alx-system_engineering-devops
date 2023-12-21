@@ -3,9 +3,9 @@
 # Displays a text at each iteration
 # Displays something else at 4th and 8th iteration
 
-counter=0
+counter=1
 
-while [ $counter -lt 10 ]
+while [ $counter -lt 11 ]
 do
 	if [ $counter -eq 4 ]
 	then
