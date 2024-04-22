@@ -15,17 +15,18 @@ if __name__ == "__main__":
     todos = requests.get('https://jsonplaceholder.typicode.com/todos/')
     todo_data = todos.json()
 
+    all_tasks = {}
     for u in user_data:
         task_data = []
         for t in todo_data:
             if u.get('id') == t.get('userId'):
-                Id = u.get('id')
                 task = {
                         "username": u.get('username'),
                         "task": t.get('title'),
                         "completed": t.get('completed')
                         }
                 task_data.append(task)
+        all_tasks[str(u.get('id'))] = task_data
 
     with open('todo_all_employees.json', 'w') as json_file:
-        json.dump({str(Id): task_data}, json_file)
+        json.dump(all_tasks, json_file)
