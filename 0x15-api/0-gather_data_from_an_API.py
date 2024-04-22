@@ -21,9 +21,9 @@ if __name__ == "__main__":
     for j in todo_data:
         if j.get('userId') == Id:
             total += 1
-            if i.get('completed'):
+            if j.get('completed'):
                 done += 1
-                tasks.append(i.get('title'))
+                tasks.append(j.get('title'))
 
     print("Employee {} is done with tasks({}/{}):".format(name, done, total))
 
