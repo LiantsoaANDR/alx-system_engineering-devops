@@ -11,7 +11,7 @@ if __name__ == "__main__":
     user_data = user.json()
     for i in user_data:
         if i.get('id') == Id:
-            name = i.get('name')
+            name = i.get('username')
             break
 
     todos = requests.get('https://jsonplaceholder.typicode.com/todos/')
