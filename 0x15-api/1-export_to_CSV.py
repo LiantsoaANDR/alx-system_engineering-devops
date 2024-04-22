@@ -23,6 +23,4 @@ if __name__ == "__main__":
                             quoting=csv.QUOTE_ALL, lineterminator='\n')
         for data in todo_data:
             if data.get('userId') == Id:
-                task_status = 'True' if data.get('completed') else 'False'
-                task_title = data.get('title')
-                writer.writerow([Id, name, task_status, task_title])
+                writer.writerow([Id, name, str(data.get('completed')), data.get('title')])
