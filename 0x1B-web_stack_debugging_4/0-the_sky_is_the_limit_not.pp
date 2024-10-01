@@ -1,11 +1,8 @@
-# Increases the amount of traffic of the server
-exec { 'fix--for-nginx':
-  command => 'sed -i "s/15/4096/" /etc/default/nginx',
-  path    => '/usr/local/bin/:/bin/'
-} ->
-
-# Restart Nginx
-exec { 'nginx-restart':
-  command => 'nginx restart',
-  path    => '/etc/init.d/'
+# set server limit higher
+exec { 'set limit to 2000':
+  path    => '/bin',
+  command => "sed -i 's/15/2000/' /etc/default/nginx"
+}
+exec { 'reboot nginx':
+  command => '/usr/sbin/service nginx restart'
 }
